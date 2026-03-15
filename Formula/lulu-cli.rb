@@ -1,16 +1,15 @@
 class LuluCli < Formula
   desc "Manage LuLu macOS firewall rules from the command line"
   homepage "https://github.com/woop/lulu-cli"
-  url "https://github.com/woop/lulu-cli/archive/refs/tags/v0.1.0.tar.gz"
-  sha256 "0019dfc4b32d63c1392aa264aed2253c1e0c2fb09216f8e2cc269bbfb8bb49b5"
+  url "https://github.com/woop/lulu-cli/releases/download/v0.1.0/lulu-cli-v0.1.0-macos-universal.tar.gz"
+  sha256 "26f1201cf4a7c2e2be76990dcdbb8c5645f8448c151fac2b5ef4b2aecb9cd0ec"
+  version "0.1.0"
   license "MIT"
 
   depends_on :macos
-  depends_on xcode: ["15.0", :build]
 
   def install
-    system "swift", "build", "-c", "release", "--disable-sandbox"
-    bin.install ".build/release/lulu-cli"
+    bin.install "lulu-cli"
   end
 
   test do
